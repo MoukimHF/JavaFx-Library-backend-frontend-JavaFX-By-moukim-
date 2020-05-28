@@ -1,0 +1,22 @@
+ <hibernate-configuration>
+<session-factory>
+    <!-- Database connection setting -->
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/test1?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
+    <property name="hibernate.connection.autocommit" >false</property>
+    <property name="hibernate.connection.username" >moukim</property>
+    <property name="hibernate.connection.password" >Qsdf12300</property>
+    <!-- SQL dialect -->
+    <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+    <!-- Create the database schema on startup -->
+    <property name="hbm2ddl.auto">update</property>
+
+    <!-- Show the queries prepared by Hibernate -->
+    <property name="show_sql">true</property>
+
+    <!-- Names the annotated entity classes -->
+    <mapping class="com.moukim.models.User" />
+    <mapping class="com.moukim.models.Book" />
+</session-factory>
+</hibernate-configuration>

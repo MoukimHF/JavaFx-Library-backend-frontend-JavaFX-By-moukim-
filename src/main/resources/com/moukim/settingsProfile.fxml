@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.moukim.SettingsProfile">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="82.0" prefWidth="600.0" style="-fx-background-color: rgb(204, 208, 219);" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="154.0" layoutY="24.0" prefHeight="17.0" prefWidth="387.0" text="This app was created by moukim © 2020">
+               <font>
+                  <Font name="Verdana" size="11.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </bottom>
+   <center>
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab id="1" text="Security">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="33.0" layoutY="47.0" prefHeight="17.0" prefWidth="53.0" text="email" />
+                        <Label layoutX="33.0" layoutY="84.0" text="password" />
+                        <TextField layoutX="176.0" layoutY="43.0" />
+                        <PasswordField layoutX="176.0" layoutY="80.0" />
+                        <Label layoutX="33.0" layoutY="136.0" text="confirm password" />
+                        <PasswordField layoutX="176.0" layoutY="132.0" />
+                        <Button defaultButton="true" layoutX="266.0" layoutY="193.0" mnemonicParsing="false" onAction="#saveProfileInfo" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: rgb(71, 96, 204);" text="save" textFill="WHITE" />
+                        <Button layoutX="176.0" layoutY="193.0" mnemonicParsing="false" text="cancel" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab id="2" text="Profile">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="fname" layoutX="75.0" layoutY="78.0" promptText="name" />
+                        <TextField fx:id="lname" layoutX="75.0" layoutY="136.0" promptText="last name" />
+                        <TextField fx:id="Email" layoutX="75.0" layoutY="199.0" promptText="email" />
+                        <TextField fx:id="Tel" layoutX="75.0" layoutY="268.0" promptText="phone number" />
+                        <DatePicker fx:id="Dob" layoutX="75.0" layoutY="338.0" prefHeight="25.0" prefWidth="155.0" promptText="date of birth" />
+                        <Button fx:id="SaveBtn" defaultButton="true" layoutX="173.0" layoutY="391.0" mnemonicParsing="false" onAction="#saveProfileInfo" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: rgb(71, 96, 204);" text="Save" textFill="WHITE" />
+                        <Button cancelButton="true" layoutX="75.0" layoutY="391.0" mnemonicParsing="false" text="Cancel" />
+                        <Label fx:id="dobErr" layoutX="256.0" layoutY="342.0" text="invalid birth date" textFill="#f20c0c" visible="false">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="telErr" layoutX="256.0" layoutY="271.0" text="invalid phone number" textFill="#f20c0c" visible="false">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="emailErr" layoutX="256.0" layoutY="202.0" text="invalid email" textFill="#f20c0c" visible="false">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lNameErr" layoutX="256.0" layoutY="139.0" text="invalid email" textFill="#f20c0c" visible="false">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nameErr" layoutX="256.0" layoutY="81.0" text="invalid name" textFill="#f20c0c" visible="false">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#goToSettings" prefHeight="150.0" prefWidth="116.0" text="Settings">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-settings-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="150.0" prefWidth="116.0" text="Profile">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-edit-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#goToDashboard" prefHeight="150.0" prefWidth="116.0" text="Dashboard">
+               <graphic>
+                   <ImageView fitHeight="21.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                           <Image url="@img/dashboard.png" />
+                       </image>
+                   </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#logOut" prefHeight="150.0" prefWidth="116.0" text="Log out">
+               <graphic>
+                   <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                           <Image url="@img/icons8-export-80.png" />
+                       </image>
+                   </ImageView>
+               </graphic></Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
