@@ -97,7 +97,6 @@ public class dashboardCtrl implements Initializable {
     public  List<Book> fetshBookss () {
         Session session = sessionFactory.openSession();
         //create a creteria same as where
-
         Criteria criteria = session.createCriteria(Book.class);
         criteria.add(Restrictions.eq("userId",userId));
         System.out.printf("user id = %d %n",userId);

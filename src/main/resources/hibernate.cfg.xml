@@ -18,5 +18,7 @@
     <!-- Names the annotated entity classes -->
     <mapping class="com.moukim.models.User" />
     <mapping class="com.moukim.models.Book" />
+    <mapping class="com.moukim.models.Admin" />
+
 </session-factory>
 </hibernate-configuration>

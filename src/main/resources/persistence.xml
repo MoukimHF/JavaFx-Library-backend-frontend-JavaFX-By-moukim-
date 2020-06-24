@@ -7,6 +7,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.moukim.models.User</class>
         <class>com.moukim.models.Book</class>
+        <class>com.moukim.models.Admin</class>
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/test1?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
@@ -20,14 +21,7 @@
             <property name="hibernate.connection.useUnicode" value="true"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <!-- use encache provider-->
-            <!--<property name="hibernate.cache.region.factory_class"-->
-            <!--value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>-->
-            <!--<property name="hibernate.javax.cache.provider" value="org.ehcache.jsr107.EhcacheCachingProvider"/>-->
-            <!--&lt;!&ndash;use second level cache&ndash;&gt;-->
-            <!--<property name="hibernate.cache.use_second_level_cache" value="true"/>-->
-            <!--&lt;!&ndash;use 3rd level cache&ndash;&gt;-->
-            <!--<property name="hibernate.cache.use_query_cache" value="true"/>-->
+
         </properties>
     </persistence-unit>
 </persistence>

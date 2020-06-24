@@ -190,10 +190,6 @@ session.getTransaction().commit();
                System.out.printf("%s %n",err.getMessage());
 
            }
-
-
-
-
        });
 
     }

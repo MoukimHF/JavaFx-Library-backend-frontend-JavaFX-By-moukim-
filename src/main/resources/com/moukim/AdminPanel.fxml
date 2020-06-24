@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchorpane_parent" prefHeight="530.0" prefWidth="899.0" stylesheets="@../../../../../../../Desktop/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.moukim.AdminPanel">
+    <children>
+        <Pane fx:id="pane_top" prefHeight="60.0" prefWidth="899.0">
+            <children>
+                <Label fx:id="label_title" layoutX="20.0" layoutY="14.0" prefHeight="32.0" prefWidth="375.0" text="Admin Panel ">
+                    <font>
+                        <Font name="Lucida Calligraphy Italic" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <AnchorPane fx:id="anchorpane_center" layoutX="12.0" layoutY="64.0" prefHeight="459.0" prefWidth="875.0">
+            <children>
+                <AnchorPane fx:id="anchorpane_left" layoutX="14.0" layoutY="14.0" prefHeight="439.0" prefWidth="274.0">
+                    <children>
+                        <TextField fx:id="txtId" layoutX="14.0" layoutY="230.0" prefHeight="25.0" prefWidth="244.0" promptText="id" />
+                        <TextField fx:id="txtUserName" layoutX="14.0" layoutY="288.0" prefHeight="25.0" prefWidth="244.0" promptText="Username" />
+                        <Button fx:id="btn_save" layoutX="15.0" layoutY="400.0" onAction="#makeUserAdmin" prefHeight="25.0" prefWidth="102.0" text="Make Admin" />
+                        <Button fx:id="btn_delete" layoutX="141.0" layoutY="400.0" onAction="#deleteUser" prefHeight="25.0" prefWidth="122.0" text="Delete" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="anchorpane_right" layoutX="294.0" layoutY="14.0" prefHeight="439.0" prefWidth="575.0">
+                    <children>
+                        <TableView fx:id="tblview" layoutX="9.0" layoutY="35.0" onMouseClicked="#blabla" onMouseEntered="#fetshUsers" prefHeight="390.0" prefWidth="558.0">
+                            <columns>
+                                <TableColumn fx:id="id" prefWidth="150.0" text="id" />
+                                <TableColumn fx:id="username" prefWidth="174.0" text="username" />
+                                <TableColumn fx:id="firstName" prefWidth="91.0" text="first Name" />
+                                <TableColumn fx:id="lastName" prefWidth="145.0" text="Last Name" />
+
+                            </columns>
+                        </TableView>
+                        <Button fx:id="btnLogout" layoutX="445.0" layoutY="5.0" onAction="#adminLogout" prefHeight="25.0" prefWidth="122.0" text="Log out" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

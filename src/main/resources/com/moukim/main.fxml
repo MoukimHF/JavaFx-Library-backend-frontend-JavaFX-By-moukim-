@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -33,6 +34,7 @@
                     <Font name="Segoe UI" size="12.0" />
                 </font>
             </Label>
+            <Button fx:id="adminPanelButton" layoutX="14.0" layoutY="464.0" mnemonicParsing="false" onAction="#goToAdminPanel" prefHeight="25.0" prefWidth="93.0" text="Admin Panel" />
         </children>
     </AnchorPane>
     <Pane fx:id="signinPane" layoutX="401.0" layoutY="9.0" prefHeight="442.0" prefWidth="382.0" AnchorPane.bottomAnchor="52.0" AnchorPane.topAnchor="9.0">
@@ -55,7 +57,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnSignup" layoutX="26.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="34.0" prefWidth="298.0" stylesheets="/com/moukim/css/main.css" text="Sign up" />
+            <Button fx:id="btnSignup" layoutX="32.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="34.0" prefWidth="298.0" stylesheets="/com/moukim/css/main.css" text="Sign up" />
             <Separator layoutX="25.0" layoutY="244.0" prefHeight="7.0" prefWidth="275.0" />
             <Label alignment="CENTER" layoutX="138.0" layoutY="236.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Or" textFill="#5b5a5a">
                 <font>
@@ -83,10 +85,10 @@
       <Pane fx:id="signUpPane" layoutX="394.0" layoutY="18.0" prefHeight="464.0" prefWidth="382.0" visible="false">
          <children>
             <TextField fx:id="txtUsernameReg" layoutX="47.0" layoutY="50.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" />
-            <PasswordField fx:id="txtPasswordReg" layoutX="47.0" layoutY="97.0" prefHeight="34.0" prefWidth="275.0" promptText="password" stylesheets="/com/moukim/css/main.css" />
+            <PasswordField fx:id="txtPasswordReg" layoutX="47.0" layoutY="97.0" onKeyPressed="#progressmove" prefHeight="34.0" prefWidth="275.0" promptText="password" stylesheets="/com/moukim/css/main.css" />
              <PasswordField fx:id="txtPasswordConfReg" layoutX="47.0" layoutY="136.0" prefHeight="34.0" prefWidth="275.0" promptText="confirm password" stylesheets="/com/moukim/css/main.css" />
 
-             <Button fx:id="btnSignupConfirmation" layoutX="116.0" layoutY="186.0" mnemonicParsing="false" onAction="#createAcount" prefHeight="34.0" prefWidth="137.0" stylesheets="@css/main.css" text="Sign up" />
+             <Button fx:id="btnSignupConfirmation" layoutX="116.0" layoutY="215.0" mnemonicParsing="false" onAction="#createAcount" prefHeight="34.0" prefWidth="137.0" stylesheets="@css/main.css" text="Sign up" />
             <Button id="btnFB" fx:id="btnFB1" layoutX="52.0" layoutY="305.0" mnemonicParsing="false" onAction="#facebookAuth" prefHeight="34.0" prefWidth="288.0" style="-fx-background-color: #355ECE;" text="Sign up with Facebook" textFill="#fcf8f8">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
@@ -118,6 +120,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
+            <ProgressBar fx:id="passwordChecker" layoutX="70.0" layoutY="179.0" prefWidth="200.0" progress="0.04" stylesheets="@css/main.css" />
          </children>
       </Pane>
       <Pane fx:id="facebookSignUpPane" layoutX="404.0" layoutY="28.0" prefHeight="464.0" prefWidth="382.0" visible="false">
@@ -161,6 +164,28 @@
                   <Font size="16.0" />
                </font>
             </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="adminPane" layoutX="411.0" layoutY="19.0" prefHeight="442.0" prefWidth="382.0" visible="false">
+         <children>
+            <TextField fx:id="adminTextField" layoutX="32.0" layoutY="73.0" prefHeight="34.0" prefWidth="275.0" promptText="username" />
+            <PasswordField fx:id="adminPasswordField" layoutX="32.0" layoutY="126.0" prefHeight="34.0" prefWidth="275.0" promptText="password" stylesheets="/com/moukim/css/main.css" />
+            <Button fx:id="btnAdminSignin" defaultButton="true" layoutX="169.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleAdminAuth" prefHeight="34.0" prefWidth="137.0" stylesheets="@css/main.css" text="Sign in" />
+            <Label fx:id="btnForgot1" alignment="CENTER" layoutX="38.0" layoutY="193.0" prefHeight="23.0" prefWidth="93.0" text="Forgot Password" textFill="#5383ff">
+               <font>
+                  <Font name="Segoe UI" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblErrors2" alignment="CENTER" layoutX="8.0" layoutY="95.0" prefHeight="23.0" prefWidth="275.0" textFill="#ff6354">
+               <font>
+                  <Font name="Segoe UI" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="27.0" prefHeight="25.0" prefWidth="208.0" text="Login to Admin Panel">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
 </children>

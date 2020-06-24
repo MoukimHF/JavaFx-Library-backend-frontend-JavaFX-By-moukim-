@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="c96b13e6-e8ab-45b0-9cb6-b07b95298471">
-        <schema name="moukim" object-types="view, table" />
+        <schema name="moukim" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>
