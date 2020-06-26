@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -175,4 +176,93 @@ public class dashboardCtrl implements Initializable {
     public void goToBooks ( ActionEvent event ) {
         dashboardPane.getSelectionModel().select(1);
     }
+
+    public void selectBook ( MouseEvent mouseEvent ) {
+        if (mouseEvent.getClickCount() > 1) {
+            oneditt();
+        }
+    }
+    private static Book findBookById(int id ){
+        //open session
+        Session session = sessionFactory.openSession();
+        //retreive the persistent object
+        Book book = session.get(Book.class,id);
+        //close session
+        session.close();
+        //return object
+        return book;
+    }
+    @FXML
+    private TextField bookId;
+    public void oneditt() {
+        // check the table's selected item and get selected item
+        if (booksTable.getSelectionModel().getSelectedItem() != null) {
+            Book selectedBook = booksTable.getSelectionModel().getSelectedItem();
+            bookId.setText(String.valueOf(selectedBook.getId()));
+
+        }
+    }
+
+    @FXML
+    private TextField bookNameEd;
+    @FXML
+    private TextField bookGenreEd;
+    @FXML
+    private TextField bookYearEd;
+    @FXML
+    private TextArea bookDescriptionEd;
+
+    public void editBook ( ActionEvent event ) {
+
+        Book selectedBook = booksTable.getSelectionModel().getSelectedItem();
+        bookNameEd.setText(selectedBook.getName());
+        bookGenreEd.setText(selectedBook.getGenre());
+        bookDescriptionEd.setText(selectedBook.getDescription());
+        bookYearEd.setText(selectedBook.getDateReleased());
+        dashboardPane.getSelectionModel().select(3);
+    }
+
+    private static void update(Book book){
+        //open session
+        Session session = sessionFactory.openSession();
+        //begin transaction
+        session.beginTransaction();
+        //user the session to update the user
+        session.update(book);
+        //commit transaction
+        session.getTransaction().commit();
+        //close session
+        session.close();
+    }
+
+    public void saveBookDetailsAfterEdit ( ActionEvent event ) {
+    Book book = findBookById(Integer.parseInt(bookId.getText()));
+    book.setName(bookNameEd.getText());
+    book.setDescription(bookDescriptionEd.getText());
+    book.setGenre(bookGenreEd.getText());
+    book.setDateReleased(bookYearEd.getText());
+    update(book);
+        dashboardPane.getSelectionModel().select(1);
+    }
+    public void backToBookAfterNotEdit ( ActionEvent event ) {
+        dashboardPane.getSelectionModel().select(1);
+    }
+
+    public void deleteBook ( ActionEvent event ) {
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+        Book book = findBookById(Integer.parseInt(bookId.getText()));
+        session.delete(book);
+
+        session.getTransaction().commit();
+        session.close();
+       Book selectedItem =  booksTable.getSelectionModel().getSelectedItem();
+       booksTable.getItems().remove(selectedItem);
+        bookId.setText("");
+    }
+
+
+
+
 }

@@ -82,7 +82,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="booksTable" layoutX="6.0" layoutY="3.0" prefHeight="355.0" prefWidth="744.0">
+                        <TableView fx:id="booksTable" layoutY="-1.0" onMouseClicked="#selectBook" prefHeight="386.0" prefWidth="589.0">
                           <columns>
                             <TableColumn fx:id="id" prefWidth="75.0" text="id" />
                             <TableColumn fx:id="name" prefWidth="145.0" text="Name" />
@@ -91,6 +91,17 @@
                               <TableColumn fx:id="description" prefWidth="199.0" text="Description" />
                           </columns>
                         </TableView>
+                        <TextField fx:id="bookId" layoutX="589.0" layoutY="46.0" prefHeight="25.0" prefWidth="101.0" promptText="id" />
+                        <Button fx:id="btn_delete1" layoutX="588.0" layoutY="96.0" onAction="#editBook" prefHeight="37.0" prefWidth="96.0" style="-fx-background-color: rgb(189, 209, 56);" text="Edit" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_delete" layoutX="588.0" layoutY="147.0" onAction="#deleteBook" prefHeight="37.0" prefWidth="102.0" style="-fx-background-color: rgb(227, 58, 32);" text="Delete" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -104,6 +115,20 @@
                         <TextArea fx:id="bookDescription" layoutX="105.0" layoutY="136.0" prefHeight="61.0" prefWidth="146.0" promptText="Short description" />
                         <Button defaultButton="true" layoutX="202.0" layoutY="208.0" mnemonicParsing="false" onAction="#saveBookDetails" prefHeight="25.0" prefWidth="50.0" text="Save" />
                         <Button cancelButton="true" layoutX="103.0" layoutY="208.0" mnemonicParsing="false" text="cancel" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="editBook">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="496.0">
+                     <children>
+                        <TextField fx:id="bookNameEd" layoutX="105.0" layoutY="14.0" promptText="name" />
+                        <TextField fx:id="bookGenreEd" layoutX="105.0" layoutY="57.0" promptText="genre" />
+                        <TextField fx:id="bookYearEd" layoutX="103.0" layoutY="95.0" promptText="year released" />
+                        <TextArea fx:id="bookDescriptionEd" layoutX="105.0" layoutY="136.0" prefHeight="61.0" prefWidth="146.0" promptText="Short description" />
+                        <Button defaultButton="true" layoutX="202.0" layoutY="208.0" mnemonicParsing="false" onAction="#saveBookDetailsAfterEdit" prefHeight="25.0" prefWidth="50.0" text="Save" />
+                        <Button cancelButton="true" layoutX="103.0" layoutY="208.0" mnemonicParsing="false" onAction="#backToBookAfterNotEdit" text="cancel" />
                      </children>
                   </AnchorPane>
                </content>

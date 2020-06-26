@@ -123,14 +123,6 @@ session.getTransaction().commit();
            user.setEmail(Email.getText());
            user.setDob(Dob.getEditor().getText());
            user.setTel(Tel.getText());
-           update(user);
-
-       }catch (Exception ex){
-           ex.getStackTrace();
-       }
-       SaveBtn.setOnAction(evt->{
-
-           User user = findUserById(userId);
 
            try {
                if(fname.getText().isBlank()) {
@@ -190,7 +182,28 @@ session.getTransaction().commit();
                System.out.printf("%s %n",err.getMessage());
 
            }
-       });
+           try{
+               String[] date = user.getDob().split("/");
+               if(date.length<2)
+                   throw new ArrayIndexOutOfBoundsException();
+               else
+                   dobErr.setVisible(false);
+               System.out.print(date);
+               System.out.printf("day : %s %n month : %s %n" , date[0] , date[1]);
+
+               Dob.setValue(LocalDate.of(Integer.parseInt(date[2]) , Integer.parseInt(date[1]) , Integer.parseInt(date[0])));
+
+           }
+           catch (ArrayIndexOutOfBoundsException dob){
+               System.out.printf("date of birth invalid %n %n %s",dob.getStackTrace());
+               dobErr.setVisible(true);
+
+           }
+
+           update(user);
+       }catch (Exception ex){
+           ex.getStackTrace();
+       }
 
     }
 
@@ -210,24 +223,24 @@ session.getTransaction().commit();
         lname.setText(user.getLastName());
         Email.setText(user.getEmail());
         Tel.setText(user.getTel());
-
         try{
-        String[] date = user.getDob().split("/");
-        if(date.length<2)
-            throw new ArrayIndexOutOfBoundsException();
-        else
-            dobErr.setVisible(false);
-        System.out.print(date);
-        System.out.printf("day : %s %n month : %s %n" , date[0] , date[1]);
+            String[] date = user.getDob().split("/");
+            if(date.length<2)
+                throw new ArrayIndexOutOfBoundsException();
+            else
+                dobErr.setVisible(false);
+            System.out.print(date);
+            System.out.printf("day : %s %n month : %s %n" , date[0] , date[1]);
 
-        Dob.setValue(LocalDate.of(Integer.parseInt(date[2]) , Integer.parseInt(date[1]) , Integer.parseInt(date[0])));
+            Dob.setValue(LocalDate.of(Integer.parseInt(date[2]) , Integer.parseInt(date[1]) , Integer.parseInt(date[0])));
 
-    }
+        }
         catch (ArrayIndexOutOfBoundsException dob){
             System.out.printf("date of birth invalid %n %n %s",dob.getStackTrace());
             dobErr.setVisible(true);
 
         }
+
     }
 
     public void goToSettings ( ActionEvent event ) {

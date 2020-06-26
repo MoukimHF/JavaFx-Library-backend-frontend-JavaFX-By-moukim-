@@ -166,7 +166,6 @@ public class AdminPanel implements Initializable {
         // Begin a transaction
         session.beginTransaction();
         User user = findUserById(Integer.parseInt(txtId.getText()));
-        // Use the session to update the contact
         session.delete(user);
 
         // Commit the transaction

@@ -17,18 +17,18 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'com.restfb', name: 'restfb', version: '3.6.1'
+    // browser in desktop app
     compile group:'io.github.bonigarcia',name: 'webdrivermanager',version: '4.0.0'
     compile group: 'org.seleniumhq.selenium',name: 'selenium-server',version: '3.14.0'
 
-
+// my sql driver
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
 // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.16.Final'
-
-
-
+// hibernate validator
     compile 'org.hibernate:hibernate-validator-cdi:6.1.5.Final'
 // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+    // crypted passwords
     compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.3.2.RELEASE'
 }
 javafx{
